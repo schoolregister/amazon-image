@@ -1,0 +1,15 @@
+#cloud-config
+groups:
+  - schoolregister
+users:
+  - name: schoolregister
+    gecos: Schoolregister.com
+    primary-group: schoolregister
+    system: true
+  - name: jelle
+    gecos: Jelle Herold
+    primary-group: wheel
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    no-user-group: true
+    ssh-authorized-keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCfMjPqeVGFbEcp1uzgxxE90gx6bSQxwt3UwSmyNsHgqEhU2guIJS1AsTYM4hwRp0TYQyiC0TAeT3qhooDU/HvCvj2ebM9dDoFcTlGqYFECzgMgndjTtCHvsam/7mFVSshC+4CUH3XVkPaz32SzMxHvbEFOqeedEKJvWqddSOcrEUtYgFNMd0eM3nZo6D09y0e+pn2FKXodOzcKgIZ/c+lOxQihF4z22e3J2/IRzkVlS7oiMrIJB1BCnayhK07LIwaJHARck3jXStBgJZ0e1/yKTSymCWndlidlwR7mu85DoO14xNp/wWUifO81AvFCzhtmXyK2tXn7vfMwFqtlMO2h jelle@joule.local
