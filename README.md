@@ -112,3 +112,28 @@ Logout, login. Boom.
 	sudo yum install nginx
 	chkconfig --add nginx
 
+Then we need a configuration for the site, place this in `/etc/nginx/conf.d/schoolregister.nginx.conf`
+
+	server {
+		listen       80;
+		server_name  schoolregister.com;
+
+		location / {
+			proxy_pass http://localhost:5000/;
+
+			proxy_set_header X-Real-IP $remote_addr;
+			proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+			proxy_set_header Host $host;
+		}
+	}
+
+Also make sure that default site is disabled, modify `/etc/nginx/nginx.conf` and comment out the `server` section with `server_name localhost`.
+
+Then `service nginx restart`.
+
+## Config
+
+Dropped in `/home/schoolregister/config.json` and symlinked into the various apps.
+
+For example `/home/schoolregister/server/config.json`.
+
