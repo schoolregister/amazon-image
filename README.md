@@ -106,3 +106,9 @@ Add the following to a file `/etc/profile.d/nodejs.sh`
 	export PATH=$PATH:/usr/local/bin
 
 Logout, login. Boom.
+
+## Nginx
+
+	sudo yum install nginx
+	chkconfig --add nginx
+
